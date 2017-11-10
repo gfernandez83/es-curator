@@ -7,16 +7,16 @@ client:
   certificate:
   client_cert:
   client_key:
+  aws_key: xxxxx
+  aws_secret_key: xxxxx
+  aws_region: ap-northeast
   ssl_no_validate: False
   http_auth:
   timeout: 30
   master_only: False
-  aws_key: xxxxx
-  aws_secret_key: xxxxx
-  aws_region: ap-northeast
 
 logging:
-  loglevel: INFO
+  loglevel: DEBUG
   logfile: '/opt/graylog_backup/log/graylog.log'
   logformat: default
   blacklist: ['elasticsearch', 'urllib3']

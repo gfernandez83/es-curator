@@ -12,6 +12,65 @@ actions:
            settings:
               number_of_shards: '4'
               number_of_replicas: '0'
+           mappings:
+            type1:
+             properties:
+               facility:
+                 type: keyword
+               from_nginx:
+                  type: keyword
+               full_message:
+                  type: text
+                  analyzer: standard
+               gl2_remote_ip:
+                  type: keyword
+               gl2_remote_port:
+                  type: keyword
+               gl2_source_input:
+                  type: keyword
+               gl2_source_node:
+                  type: keyword
+               host:
+                  type: keyword
+               http_referer:
+                  type: keyword
+               http_user_agent:
+                  type: keyword
+               http_version:
+                  type: keyword
+               level:
+                  type: long
+               message:
+                  type: text
+                  analyzer: standard
+               millis:
+                  type: float
+               nginx_access:
+                  type: keyword
+               nginx_error:
+                  type: keyword
+               remote_addr:
+                  type: keyword
+               remote_user:
+                  type: keyword
+               request_path:
+                  type: keyword
+               request_verb:
+                  type: keyword
+               response_bytes:
+                  type: long
+               response_status:
+                  type: long
+               server:
+                  type: keyword
+               source:
+                  type: text
+                  fielddata: true
+               streams:
+                  type: keyword
+               timestamp:
+                  type: date
+                  format: yyyy-MM-dd HH:mm:ss.SSS
         timeout_override:
         continue_if_exception: False
         disable_action: False   

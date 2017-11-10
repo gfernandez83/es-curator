@@ -1,0 +1,40 @@
+# Remember, leave a key empty if there is no value.  None will be a string,
+# not a Python "NoneType"
+#
+# This assigns new ES index to graylog alias with zero downtime
+
+actions:
+  1:
+    action: alias
+    description: >-
+      Alias new indices to graylog index with no downtime
+    options:
+      name: graylog-aws-%Y-%m
+      extra_settings:
+      timeout_override:
+      continue_if_exception: False
+      disable_action: False
+    add:
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: accesslogs
+        exclude:
+      - filtertype: age
+        source: name
+        direction: older
+        timestring: '%Y-%m'
+        unit: minutes
+        unit_count: 5
+    #remove:
+    #  filters:
+    #  - filtertype: pattern
+    #    kind: prefix
+    #    value: graylog-aws
+    #    exclude:
+    #  - filtertype: age
+    #    source: name
+    #    direction: older
+    #    timestring: '%Y-%m'
+    #    unit: minutes
+    #    unit_count: 1

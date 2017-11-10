@@ -1,0 +1,19 @@
+# Remember, leave a key empty if there is no value.  None will be a string, not a Python "NoneType"
+# 
+# This is an action file for ES indices backup
+
+actions:
+  1:
+     action: create_index
+     description: "For monthly creation of Elasticsearch index"
+     options: 
+        name: 'graylog-aws-%Y-%m'
+        extra_settings:
+           settings:
+              number_of_shards: '4'
+              number_of_replicas: '0'
+              creation_date:
+        timeout_override:
+        continue_if_exception: False
+        disable_action: False   
+        

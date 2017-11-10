@@ -8,13 +8,12 @@ actions:
   1:
     action: snapshot
     description: >-
-      Snapshot indices older than 1 day (based on document
-      timestamp).  Wait for the snapshot to complete.  Do not skip
-      the repository filesystem access check.  Use the other options to create
+      Snapshot indices older than 1 day (based on document timestamp). Wait for the snapshot to complete. Do not skip
+      the repository filesystem access check. Use the other options to create
       the snapshot.
     options:
       repository: s3-backup
-      name: graylog-aws
+      name: graylog-aws-backup-%Y-%m-%d-%H:%M:%S
       ignore_unavailable: False
       include_global_state: True
       partial: False
@@ -26,11 +25,9 @@ actions:
     filters:
     - filtertype: pattern
       kind: prefix
-      value: graylog-aws-%Y%m
-      exclude:
+      value: graylog-aws
     - filtertype: age
       source: creation_date
       direction: older
       unit: minutes
       unit_count: 1
-      exclude:
