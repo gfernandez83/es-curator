@@ -1,0 +1,22 @@
+client:
+  hosts:
+    - 127.0.0.1
+  port: 9200
+  url_prefix:
+  use_ssl: False
+  certificate:
+  client_cert:
+  client_key:
+  ssl_no_validate: False
+  http_auth:
+  timeout: 30
+  master_only: False
+  aws_key: xxxxx
+  aws_secret_key: xxxxx
+  aws_region: ap-northeast
+
+logging:
+  loglevel: INFO
+  logfile: '/opt/graylog_backup/log/graylog.log'
+  logformat: default
+  blacklist: ['elasticsearch', 'urllib3']
